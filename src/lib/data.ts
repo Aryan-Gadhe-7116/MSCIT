@@ -307,6 +307,26 @@ export function getAverageMarks(student: Student): number {
   return Math.round(marks.reduce((a, b) => a + b as number, 0) / marks.length);
 }
 
+// Notifications hooks
+export const useNotifications = () => useQuery<Notification[]>({
+  queryKey: ['notifications'],
+  queryFn: async () => {
+    const auth = getAuth();
+    if (!auth?.userId) return [];
+    const { data, error } = await supabase
+      .from('notifications')
+      .select('*')
+      .eq('user_id', auth.userId);
+    if (error) throw error;
+    return data || [];
+  }
+});
+
+export const useUnreadCount = () => {
+  const { data: notifications = [] } = useNotifications();
+  return notifications.filter(n => !n.read).length;
+};
+
 // Export for compatibility
 export const db = {
   students: {
@@ -327,6 +347,10 @@ export const db = {
     useAll: useTrainers,
     useAdd: useAddTrainer,
   },
+  notifications: {
+    useAll: useNotifications,
+    unreadCount: useUnreadCount,
+  }
 };
 
 // Note: Run `npm run dev` to test. Tables must exist in Supabase.

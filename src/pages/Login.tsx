@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { GraduationCap } from "lucide-react";
 import { toast } from "sonner";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Login() {
   const [tab, setTab] = useState<"login" | "register">("login");
@@ -56,6 +57,9 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <Card className="w-full max-w-md shadow-xl border-border">
         <CardHeader className="text-center pb-2">
           <div className="mx-auto w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-3">

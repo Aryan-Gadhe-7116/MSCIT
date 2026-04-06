@@ -1,13 +1,13 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
-import { getAuth } from "@/lib/data";
+import { getAuth, useUnreadCount } from "@/lib/data";
 import { Bell } from "lucide-react";
-import { db } from "@/lib/data";
 import { useNavigate } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const auth = getAuth();
-  const unread = db.notifications.unreadCount();
+  const unread = useUnreadCount();
   const navigate = useNavigate();
 
   return (
@@ -20,7 +20,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             <h1 className="text-lg font-semibold text-foreground truncate">
               MS-CIT Class Management
             </h1>
-            <div className="ml-auto flex items-center gap-3">
+            <div className="ml-auto flex items-center gap-2">
               <button onClick={() => navigate("/notifications")} className="relative p-2 rounded-lg hover:bg-muted transition-colors">
                 <Bell className="h-5 w-5 text-muted-foreground" />
                 {unread > 0 && (
@@ -32,6 +32,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               <span className="text-sm text-muted-foreground capitalize hidden sm:inline">
                 {auth?.role || "Admin"}
               </span>
+              <ThemeToggle />
             </div>
           </header>
           <main className="flex-1 p-4 md:p-6 overflow-auto">

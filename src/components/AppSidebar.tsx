@@ -8,8 +8,9 @@ import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
   SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar,
 } from "@/components/ui/sidebar";
-import { db, getAuth, logout } from "@/lib/data";
+import { db, getAuth, logout, useUnreadCount } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
+import { Logo } from "@/components/Logo";
 
 const adminItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
@@ -31,7 +32,7 @@ export function AppSidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const auth = getAuth();
-  const unread = db.notifications.unreadCount();
+  const unread = useUnreadCount();
 
   const handleLogout = () => {
     logout();
@@ -50,8 +51,11 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
+          <Logo collapsed={collapsed} />
+        </SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel className="text-sidebar-primary font-bold text-sm tracking-wider">
-            {!collapsed && "MS-CIT Manager"}
+            {!collapsed && "Navigation"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
