@@ -1,0 +1,33 @@
+console debug [vite] connecting...
+console debug [vite] connected.
+console info %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold
+console warning ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+console warning ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+console log App mounted
+page title: Lovable App
+current url: http://localhost:8080/login
+root html snapshot <!DOCTYPE html><html lang="en" class="light" style="color-scheme: light;"><head>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Lovable App</title>
+    <meta name="description" content="Lovable Generated Project">
+    <meta name="author" content="Lovable">
+
+    <!-- TODO: Update og:title to match your application name -->
+    <meta property="og:title" content="Lovable App">
+    <meta property="og:description" content="Lovable Generated Project">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Lovable">
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
+  <style type="tex
