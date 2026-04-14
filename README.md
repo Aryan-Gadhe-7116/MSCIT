@@ -1,5 +1,4 @@
 # MS-CIT Manager
-
 A modern React-based Class Management System for MS-CIT training institutes.
 
 ## 🚀 Quick Start
@@ -56,3 +55,4 @@ dist/              # Built production files
 ## 🚀 Deployment
 
 See `DEPLOYMENT.md` for deployment options (Vercel, Netlify, GitHub Pages, etc.)
+update
